@@ -66,7 +66,7 @@ function changeImage(){
         subCar.style.left = x + "rem";
     }
 
-    if (Keys.up == true && y > 0){
+    if (Keys.up == true && y > -4.125){
         y -= movementSpeed;
         subCar.style.top = y + "rem";
     }
@@ -104,7 +104,6 @@ img.src = "Images/sub-car-horizontal.gif";*/
 
 //Set the car's default location. Will probably update this later to add other object locations, such as the monitors that take you to other websites
 $(function(){
-    $("#sub-car").attr("style", "top: -8.5rem; z-index: 0;");
     subCar.style.left = x + "rem";
     subCar.style.top = y + "rem";
 })

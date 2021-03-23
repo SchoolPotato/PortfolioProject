@@ -34,7 +34,7 @@ body {
   width: 14.125rem;
   height: auto;
   position: relative;
-  float: left;
+  left: -8.25rem;
   z-index: 1;
 }
 
