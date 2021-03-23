@@ -1,5 +1,5 @@
+# Alex's Portfolio
 <p align="center">
-  # Alex's Portfolio
   The beginning of a portfolio website, made for school.
   Drive a funny little steam-boat themed car around and explore some websites.
 
