@@ -1,0 +1,49 @@
+body {
+  background-color: black;
+  font-size: 16px;
+}
+
+* {
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.charObjectH {
+  width: 8.25rem;
+  height: auto;
+  position: relative;
+}
+
+.charObjectV {
+  width: 4.75rem;
+  height: auto;
+  position: relative;
+  margin-left: 1.75rem;
+  margin-right: 1.75rem;
+}
+
+.screenObject {
+  width: 16rem;
+  height: auto;
+  position: relative;
+  float: right;
+  z-index: 1;
+}
+
+.profileObject {
+  width: 14.125rem;
+  height: auto;
+  position: relative;
+  float: left;
+  z-index: 1;
+}
+
+.flipped {
+  transform: scale(-1, 1);
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -khtml-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+}
+/*# sourceMappingURL=index.css.map */
