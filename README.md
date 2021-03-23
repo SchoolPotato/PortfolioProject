@@ -11,5 +11,5 @@
 </p>
 
 <p align="center">
-  Made using some funny pixels, about 10 lines of html, and a massive, heaping pile of javascript.
+  Made using aseprite, about 10 lines of html, and a massive, heaping pile of javascript.
 </p>
