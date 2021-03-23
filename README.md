@@ -1,4 +1,4 @@
-# Alex's Portfolio
+<h1 align="center">Alex's Portfolio</h1
 <p align="center">
   The beginning of a portfolio website, made for school.<br>
   Drive a funny little steam-boat themed car around and explore some websites.
