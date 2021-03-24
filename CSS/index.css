@@ -26,7 +26,6 @@ body {
   width: 16rem;
   height: auto;
   position: relative;
-  float: right;
   z-index: 1;
 }
 
@@ -36,6 +35,16 @@ body {
   position: relative;
   left: -8.25rem;
   z-index: 1;
+}
+
+.arrowObject {
+  width: 7.25rem;
+  height: auto;
+  position: relative;
+}
+
+#w3, #monitor2 {
+  float: right;
 }
 
 .flipped {

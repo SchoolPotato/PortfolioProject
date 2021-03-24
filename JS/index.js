@@ -1,5 +1,3 @@
-var subCar = document.getElementById('sub-car');
-
 // Used so I don't have to type out which key is pressed or remember codes every time
 // I didn't use it very consistently though, so I still ended up having to remember codes :^)
 // [internalized pain in spanish]
@@ -9,8 +7,6 @@ var Keys = {
     left: false,
     right: false,
 } 
-
-var gifPlaying = 1;
 
 // How many "pixels" to move each time a button is pressed. One "pixel" is 0.25rem.
 var movementSpeed = 0.5;
@@ -92,12 +88,15 @@ function changeImage(){
         }
     }
 
-    if (collision($("#sub-car"), $("#w3")) && gifPlaying == 1){
+    
+    // If the first gif is currently playing and the car is colliding with the monitor, play the second gif
+    if (collision($("#sub-car"), $("#w3")) && w3MonitorGifPlaying == 1){
         $("#w3").attr("src", "Images/w3-monitor-on.gif");
-        gifPlaying = 2;
+        w3MonitorGifPlaying = 2;
     }
-    if (!collision($("#sub-car"), $("#w3")) && gifPlaying == 2){
-        gifPlaying = 1;
+    // If the second gif is currently playing and the car is colliding with the monitor, play the first gif
+    if (!collision($("#sub-car"), $("#w3")) && w3MonitorGifPlaying == 2){
+        w3MonitorGifPlaying = 1;
         $("#w3").attr("src", "Images/w3-monitor-off.gif")
     }
 }
@@ -138,9 +137,24 @@ function collision($div1, $div2) {
 var x = ((window.innerWidth / 2) / 16) - 4.5;
 var y = ((window.innerHeight / 2) / 16) - 10.5;
 
+// Variable used to tell the function which gif is currently playing
+var w3MonitorGifPlaying = 1;
+
+// Object variables for positioning on startup
+var subCar = document.getElementById('sub-car');
+var arrowObject = document.getElementById('arrow');
+var monitor2 = document.getElementById('monitor2');
+var w3Monitor = document.getElementById('w3');
+
 // Set the car's default location once the webpage has loaded.
 // Will probably update this later to add other object locations, such as the monitors that take you to other websites
 $(function(){
     subCar.style.left = x + "rem";
     subCar.style.top = y + "rem";
+    arrowObject.style.top = ((window.innerHeight / 2) / 16) - 9.25 + "rem";
+    arrowObject.style.left = (window.innerWidth / 2) / 16 - 14.5 + "rem";
+    monitor2.style.right = (window.innerWidth) / 16 - 48.5 + "rem";
+    monitor2.style.top = (window.innerHeight / 16) - 18 + "rem";
+    w3Monitor.style.right = (window.innerWidth / 16 - 16) + "rem";
+    w3Monitor.style.top = (window.innerHeight / 16 - 21) + "rem";
 })
