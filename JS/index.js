@@ -99,6 +99,10 @@ function changeImage(){
         w3MonitorGifPlaying = 1;
         $("#w3").attr("src", "Images/w3-monitor-off.gif")
     }
+
+    if (collision($("#sub-car"), $("#arrowRight"))) {
+        window.location.href = "gallery.html";
+    }
 }
 
 // Thanks to Ethan R. for sharing this function with me :^)
@@ -142,8 +146,9 @@ var w3MonitorGifPlaying = 1;
 
 // Object variables for positioning on startup
 var subCar = document.getElementById('sub-car');
-var arrowObject = document.getElementById('arrow');
+var arrowObject = document.getElementById('arrowRight');
 var monitor2 = document.getElementById('monitor2');
+var monitor3 = document.getElementById('monitor3');
 var w3Monitor = document.getElementById('w3');
 
 // Set the car's default location once the webpage has loaded.
@@ -152,9 +157,11 @@ $(function(){
     subCar.style.left = x + "rem";
     subCar.style.top = y + "rem";
     arrowObject.style.top = ((window.innerHeight / 2) / 16) - 9.25 + "rem";
-    arrowObject.style.left = (window.innerWidth / 2) / 16 - 14.5 + "rem";
+    arrowObject.style.left = ((window.innerWidth / 2) / 16) - 3.25 + "rem";
     monitor2.style.right = (window.innerWidth) / 16 - 48.5 + "rem";
-    monitor2.style.top = (window.innerHeight / 16) - 18 + "rem";
+    monitor2.style.top = (window.innerHeight / 16) - 21 + "rem";
+    monitor3.style.right = (window.innerWidth / 16) - 81 + "rem"
+    monitor3.style.top = (window.innerHeight/ 16) - 21 + "rem";
     w3Monitor.style.right = (window.innerWidth / 16 - 16) + "rem";
     w3Monitor.style.top = (window.innerHeight / 16 - 21) + "rem";
 })
