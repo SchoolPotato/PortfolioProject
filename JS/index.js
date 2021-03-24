@@ -10,6 +10,8 @@ var Keys = {
     right: false,
 } 
 
+var gifPlaying = 1;
+
 // How many "pixels" to move each time a button is pressed. One "pixel" is 0.25rem.
 var movementSpeed = 0.5;
 
@@ -83,19 +85,39 @@ function changeImage(){
         subCar.style.zIndex = 0;
     }
 
-    //If you press enter, detect if you're on a monitor platform, and then send you to the website the monitor represents. w3schools is used currently as a placeholder.
-    if (event.keyCode == 13 && y >= -2 && y <= -0.5 && x >= 1 && x <= 22.5) {
-        window.location.href = "https://www.w3schools.com/howto/howto_js_redirect_webpage.asp"
+    //If you press enter, detect if you're on a monitor, and then send you to the website the monitor represents. w3schools is used currently as a placeholder.
+    if (event.keyCode == 13 && collision($(".monitor"), $("#sub-car"))) {
+        if (collision($("#w3"), $("#sub-car"))){
+            window.location.href = "https://www.w3schools.com/howto/howto_js_redirect_webpage.asp";
+        }
+    }
+
+    if (collision($("#sub-car"), $("#w3")) && gifPlaying == 1){
+        $("#w3").attr("src", "Images/w3-monitor-on.gif");
+        gifPlaying = 2;
+    }
+    if (!collision($("#sub-car"), $("#w3")) && gifPlaying == 2){
+        gifPlaying = 1;
+        $("#w3").attr("src", "Images/w3-monitor-off.gif")
     }
 }
 
+// Thanks to Ethan R. for sharing this function with me :^)
+// Collision function to detect when you're on top of an object 
 function collision($div1, $div2) {
+    // Finds the offset from the left of the screen for the first div
     var x1 = $div1.offset().left;
+    // Finds the offset from the top of the screen for the first div
     var y1 = $div1.offset().top;
+    // Finds the height of the first div including margin
     var h1 = $div1.outerHeight(true);
+    // Finds the width of the first div including margin
     var w1 = $div1.outerWidth(true);
+    // Add the top offset and the height to find the bottom of the first div
     var b1 = y1 + h1;
+    // Add the right offset and the width to find the right side of the first div
     var r1 = x1 + w1;
+    // The following six lines are the same as the first couple lines but for the second div, so I'm not commenting them
     var x2 = $div2.offset().left;
     var y2 = $div2.offset().top;
     var h2 = $div2.outerHeight(true);
@@ -103,7 +125,11 @@ function collision($div1, $div2) {
     var b2 = y2 + h2;
     var r2 = x2 + w2;
       
+    // Compares the two sets of variables to determine whether the two divs are overlapping
+    // i.e. the first one checks if div 2's y offset is greater than the bottom of div 1
+    // If so, the function returns false, because the two cannot be touching if that is the case
     if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return false;
+    // If none of the above conditions are met, the two must be overlapping, and therefore the function returns true
     return true;
 }
 
@@ -112,15 +138,8 @@ function collision($div1, $div2) {
 var x = ((window.innerWidth / 2) / 16) - 4.5;
 var y = ((window.innerHeight / 2) / 16) - 10.5;
 
-// Experimenting with canvas
-/*var ctx = document.getElementById("canvas").getContext('2d');
-var img = new Image;
-img.onload = function() {
-    ctx.drawImage(img, 10, 10);
-}
-img.src = "Images/sub-car-horizontal.gif";*/
-
-//Set the car's default location. Will probably update this later to add other object locations, such as the monitors that take you to other websites
+// Set the car's default location once the webpage has loaded.
+// Will probably update this later to add other object locations, such as the monitors that take you to other websites
 $(function(){
     subCar.style.left = x + "rem";
     subCar.style.top = y + "rem";
